@@ -55,7 +55,7 @@ class Block:
     receiver: Any
     amount: Any
     creator_id: int
-    timestamp: str = datetime.utcnow().strftime("%H:%M:%S")
+    timestamp: str = datetime.datetime.utcnow().strftime("%H:%M:%S")
 
 
 ################################################################################
@@ -176,15 +176,22 @@ input_data = st.text_input("Block Data")
 
 # @TODO:
 # Add an input area where you can get a value for `sender` from the user.
-# YOUR CODE HERE
+def hash_block(self):
+    sha = hashlib.sha256()
+    sender = str(self.sender).encode()
+    sha.update(sender)
 
 # @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-# YOUR CODE HERE
+    receiver = str(self.receiver).encode()
+    sha.update(receiver)
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
-# YOUR CODE HERE
+    amount = str(self.amount).encode()
+    sha.update(amount)
+
+    return sha.hexdigest()
 
 if st.button("Add Block"):
     prev_block = pychain.chain[-1]
