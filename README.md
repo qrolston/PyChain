@@ -8,7 +8,6 @@ PyChain (stored as **pychain.py**) is a python application used to demonstrate b
 **Example of drop down window showing validity**
 ![screenshot of drop down menu](images/2.png)
 
-When extending the training window we experience a larger difference in results, first in a loss then a positive. Overall the longer training window gave us a much more successful result.
 
 
 ## Technologies
